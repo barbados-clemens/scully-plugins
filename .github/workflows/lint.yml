@@ -1,0 +1,28 @@
+name: Lint Project
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - 'feat/*'
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v1
+
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install Dependencies
+        run: npm i
+
+      - name: Run Linter
+        run: npm run lint

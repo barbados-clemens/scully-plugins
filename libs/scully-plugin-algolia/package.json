@@ -1,0 +1,22 @@
+{
+  "name": "@scully-plugins/scully-plugin-algolia",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "@scullyio/scully": "latest",
+    "algoliasearch": "^4.2.0"
+  },
+  "keywords": [
+    "angular",
+    "scully",
+    "algolia",
+    "search"
+  ],
+  "author": "Caleb Ukle",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
