@@ -1,0 +1,13 @@
+{
+  "name": "@scully-plugins/scully-plugin-header-links",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "@scullyio/scully": "latest"
+  },
+  "dependencies": {
+    "jsdom": "^16.2.2"
+  }
+}

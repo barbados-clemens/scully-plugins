@@ -44,6 +44,147 @@
           "style": "scss"
         }
       }
+    },
+    "scully-plugin-firebase-likes": {
+      "projectType": "library",
+      "root": "libs/scully-plugin-firebase-likes",
+      "sourceRoot": "libs/scully-plugin-firebase-likes/src",
+      "prefix": "scully-plugins",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/scully-plugin-firebase-likes/tsconfig.lib.json",
+            "project": "libs/scully-plugin-firebase-likes/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/scully-plugin-firebase-likes/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/scully-plugin-firebase-likes/tsconfig.lib.json",
+              "libs/scully-plugin-firebase-likes/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/scully-plugin-firebase-likes/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/scully-plugin-firebase-likes/jest.config.js",
+            "tsConfig": "libs/scully-plugin-firebase-likes/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/scully-plugin-firebase-likes/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "scully-plugin-blur-up-images": {
+      "projectType": "library",
+      "root": "libs/scully-plugin-blur-up-images",
+      "sourceRoot": "libs/scully-plugin-blur-up-images/src",
+      "prefix": "scully-plugins",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/scully-plugin-blur-up-images/tsconfig.lib.json",
+            "project": "libs/scully-plugin-blur-up-images/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/scully-plugin-blur-up-images/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/scully-plugin-blur-up-images/tsconfig.lib.json",
+              "libs/scully-plugin-blur-up-images/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/scully-plugin-blur-up-images/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/scully-plugin-blur-up-images/jest.config.js",
+            "tsConfig": "libs/scully-plugin-blur-up-images/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/scully-plugin-blur-up-images/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "scully-plugin-header-links": {
+      "projectType": "library",
+      "root": "libs/scully-plugin-header-links",
+      "sourceRoot": "libs/scully-plugin-header-links/src",
+      "prefix": "scully-plugins",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/scully-plugin-header-links/tsconfig.lib.json",
+            "project": "libs/scully-plugin-header-links/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/scully-plugin-header-links/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/scully-plugin-header-links/tsconfig.lib.json",
+              "libs/scully-plugin-header-links/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/scully-plugin-header-links/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/scully-plugin-header-links/jest.config.js",
+            "tsConfig": "libs/scully-plugin-header-links/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/scully-plugin-header-links/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -18,6 +18,15 @@
     "paths": {
       "@scully-plugins/scully-plugin-algolia": [
         "libs/scully-plugin-algolia/src/index.ts"
+      ],
+      "@scully-plugins/scully-plugin-firebase-likes": [
+        "libs/scully-plugin-firebase-likes/src/index.ts"
+      ],
+      "@scully-plugins/scully-plugin-blur-up-images": [
+        "libs/scully-plugin-blur-up-images/src/index.ts"
+      ],
+      "@scully-plugins/scully-plugin-header-links": [
+        "libs/scully-plugin-header-links/src/index.ts"
       ]
     }
   },

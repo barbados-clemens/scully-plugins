@@ -21,6 +21,15 @@
   "projects": {
     "scully-plugin-algolia": {
       "tags": []
+    },
+    "scully-plugin-firebase-likes": {
+      "tags": []
+    },
+    "scully-plugin-blur-up-images": {
+      "tags": []
+    },
+    "scully-plugin-header-links": {
+      "tags": []
     }
   }
 }
