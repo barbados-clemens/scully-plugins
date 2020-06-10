@@ -1,6 +1,6 @@
 {
-  "name": "@scully-plugins/scully-plugin-firebase-likes",
-  "version": "0.0.1",
+  "name": "@barbados-clemens/scully-plugin-firebase-likes",
+  "version": "0.0.3",
   "scripts": {
     "test": "jest"
   },

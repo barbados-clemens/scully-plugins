@@ -1,7 +1,6 @@
 # scully-plugin-algolia
 
-This library was generated with [Nx](https://nx.dev).
+Create or update your algolia documents for an index
 
-## Running unit tests
-
-Run `nx test scully-plugin-algolia` to execute the unit tests.
+# TODO
+Finish writing docs

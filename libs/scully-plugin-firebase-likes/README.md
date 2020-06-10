@@ -1,7 +1,6 @@
 # scully-plugin-firebase-likes
 
-This library was generated with [Nx](https://nx.dev).
+Add posts to a firestore collection, useful for powering any firebase related content such as likes/favorites
 
-## Running unit tests
-
-Run `nx test scully-plugin-firebase-likes` to execute the unit tests.
+# TODO
+Finish writing docs

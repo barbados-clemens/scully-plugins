@@ -1,7 +1,6 @@
 # scully-plugin-blur-up-images
 
-This library was generated with [Nx](https://nx.dev).
+Lazy load images and use the blur up technique for image placeholders
 
-## Running unit tests
-
-Run `nx test scully-plugin-blur-up-images` to execute the unit tests.
+# TODO
+Finish writing docs

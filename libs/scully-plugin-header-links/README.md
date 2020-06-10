@@ -1,7 +1,6 @@
 # scully-plugin-header-links
 
-This library was generated with [Nx](https://nx.dev).
+Provide icon to link directory to header in post
 
-## Running unit tests
-
-Run `nx test scully-plugin-header-links` to execute the unit tests.
+# TODO
+Finish writing docs

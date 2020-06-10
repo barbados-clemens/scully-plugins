@@ -1,8 +1,11 @@
 import { registerPlugin, getPluginConfig } from "@scullyio/scully"
-import { log, logWarn, orange, green, red, logError } from "@scullyio/scully/utils/log";
-import * as algoliasearch  from 'algoliasearch'
+import { log, logWarn, orange, green, red, logError } from "@scullyio/scully"
+import { default as searchClient } from 'algoliasearch'
 
 import { SearchClient, SearchIndex } from 'algoliasearch/dist/algoliasearch';
+
+declare var process;
+declare var require;
 
 export interface IAlgoliaPluginSettings {
   indexName: string;
@@ -69,7 +72,7 @@ function initAlgoliaClient(appId: string, apiKey: string): SearchClient {
     throw new Error("Make sure configuration variables are set")
   }
 
-  return algoliasearch(appId, apiKey)
+  return searchClient(appId, apiKey)
 }
 
 /***

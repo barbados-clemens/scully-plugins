@@ -16,16 +16,16 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@scully-plugins/scully-plugin-algolia": [
+      "@barbados-clemens/scully-plugin-algolia": [
         "libs/scully-plugin-algolia/src/index.ts"
       ],
-      "@scully-plugins/scully-plugin-firebase-likes": [
+      "@barbados-clemens/scully-plugin-firebase-likes": [
         "libs/scully-plugin-firebase-likes/src/index.ts"
       ],
-      "@scully-plugins/scully-plugin-blur-up-images": [
+      "@barbados-clemens/scully-plugin-blur-up-images": [
         "libs/scully-plugin-blur-up-images/src/index.ts"
       ],
-      "@scully-plugins/scully-plugin-header-links": [
+      "@barbados-clemens/scully-plugin-header-links": [
         "libs/scully-plugin-header-links/src/index.ts"
       ]
     }

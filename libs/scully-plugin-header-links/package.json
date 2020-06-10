@@ -1,6 +1,6 @@
 {
-  "name": "@scully-plugins/scully-plugin-header-links",
-  "version": "0.0.1",
+  "name": "@barbados-clemens/scully-plugin-header-links",
+  "version": "0.0.4",
   "scripts": {
     "test": "jest"
   },

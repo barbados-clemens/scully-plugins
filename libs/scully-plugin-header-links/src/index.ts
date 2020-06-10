@@ -1,1 +1,1 @@
-export * from './lib/scully-plugin-header-links.module';
+export * from './lib/index';

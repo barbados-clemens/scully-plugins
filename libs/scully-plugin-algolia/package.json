@@ -1,6 +1,6 @@
 {
-  "name": "@scully-plugins/scully-plugin-algolia",
-  "version": "0.0.1",
+  "name": "@barbados-clemens/scully-plugin-algolia",
+  "version": "0.0.3",
   "scripts": {
     "test": "jest"
   },
@@ -18,5 +18,8 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.13"
   }
 }
