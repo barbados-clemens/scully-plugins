@@ -5,6 +5,8 @@
     "entryFile": "src/index.ts"
   },
   "whitelistedNonPeerDependencies": [
-    "jsdom"
+    "jsdom",
+    "axios",
+    "sharp"
   ]
 }

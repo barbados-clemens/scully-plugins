@@ -1,6 +1,11 @@
 # scully-plugin-header-links
 
-Provide icon to link directory to header in post
+Provide an icon to link directly to header in post
 
 # TODO
-Finish writing docs
+- [ ] add ability to configure
+  - icon
+  - header selector
+  - custom class
+- [ ] Test
+  - Modified output matches expected output

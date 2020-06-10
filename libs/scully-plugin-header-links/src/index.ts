@@ -1,1 +1,1 @@
-export * from './lib/index';
+export {addLinksToHeader} from './lib/index';
