@@ -1,6 +1,6 @@
 {
   "name": "@barbados-clemens/scully-plugin-blur-up-images",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "scripts": {
     "test": "jest"
   },

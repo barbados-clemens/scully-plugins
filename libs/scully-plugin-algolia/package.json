@@ -1,6 +1,6 @@
 {
   "name": "@barbados-clemens/scully-plugin-algolia",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "scripts": {
     "test": "jest"
   },

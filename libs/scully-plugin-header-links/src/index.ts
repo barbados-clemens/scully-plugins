@@ -1,1 +1,1 @@
-export {addLinksToHeader} from './lib/index';
+export {addLinksToHeaderPlugin} from './lib/index';
