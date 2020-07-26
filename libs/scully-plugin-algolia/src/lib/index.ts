@@ -24,9 +24,9 @@ export interface IAlgoliaPluginConfig {
   dryRun: boolean;
 }
 
-const UpdateAlgoliaIndex = 'updateAlgoliaIndex';
+export const UpdateAlgoliaIndex = 'updateAlgoliaIndex';
 
-const AlgoliaPluginDefaultConfig: IAlgoliaPluginConfig = {
+export const AlgoliaPluginDefaultConfig: IAlgoliaPluginConfig = {
   indexName: 'blog',
   appId: null,
   apiKey: null,

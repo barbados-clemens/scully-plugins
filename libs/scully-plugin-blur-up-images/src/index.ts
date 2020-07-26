@@ -1,7 +1,9 @@
 export {
-  blurUpImagesPlugin
+  blurUpImagesPlugin,
+  IBlurUpConfig,
+  BlurUpImages,
 } from './lib/index';
 
 export {
-  BlurUpModule
+  BlurUpModule,
 } from './lib/blur-up.module';

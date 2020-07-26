@@ -58,7 +58,7 @@ export async function blurUpImagesPlugin(html: string, route: HandledRoute): Pro
 
 const validator = async conf => [];
 
-const BlurUpImages = 'blurUpPlugin';
+export const BlurUpImages = 'blurUpPlugin';
 
 registerPlugin('render', BlurUpImages, blurUpImagesPlugin, validator);
 

@@ -10,16 +10,19 @@ import {
 } from '@scullyio/scully';
 import * as admin from 'firebase-admin';
 
-const AddPostToFirebase = 'addPostToFirebase';
+export const AddPostToFirebase = 'addPostToFirebase';
 
 export async function addPostToFirebasePlugin(html: string, route: HandledRoute): Promise<string> {
   try {
     const {
       serviceAccount,
       databaseUrl,
-      dryRun = false
+      dryRun = false,
+      debug,
     } = getMyConfig<IFirebasePluginSettings>(AddPostToFirebase);
 
+    console.log(`Service Account => ${serviceAccount}`)
+    console.log(`DatabaseUrl => ${databaseUrl}`)
 
     if (!serviceAccount || !databaseUrl) {
       logError(red('service account and/or databaseUrl configurations are not set for the firebase plugin'));
@@ -66,6 +69,7 @@ export interface IFirebasePluginSettings {
   serviceAccount: any;
   databaseUrl: string
   dryRun?: boolean;
+  debug?: boolean;
 }
 
 
