@@ -1,5 +1,5 @@
 export {
-  blurUp
+  blurUpImagesPlugin
 } from './lib/index';
 
 export {

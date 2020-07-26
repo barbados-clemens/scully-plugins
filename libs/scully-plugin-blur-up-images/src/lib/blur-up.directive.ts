@@ -57,7 +57,7 @@ export class BlurUpDirective implements AfterViewChecked, OnDestroy {
 
 }
 
-const BLUR_UP_SCRIPT = `
+export const BLUR_UP_SCRIPT = `
 <script data-blurup>
   const imageWrappers = document.querySelectorAll('.img-wrapper')
 

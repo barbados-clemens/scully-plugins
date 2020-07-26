@@ -1,36 +1,46 @@
-import { getPluginConfig, green, log, logError, logWarn, orange, red, registerPlugin } from '@scullyio/scully';
+import {
+  getMyConfig,
+  green, HandledRoute,
+  log,
+  logError,
+  logWarn,
+  orange,
+  red,
+  registerPlugin
+} from '@scullyio/scully';
 import * as admin from 'firebase-admin';
 
-export interface IFirebasePluginSettings {
-  serviceAccount: any;
-  databaseUrl: string
-  dryRun?: boolean;
-}
+const AddPostToFirebase = 'addPostToFirebase';
 
-const firebasePlugin = 'addPostToFirebase';
-const {
-  serviceAccount,
-  databaseUrl,
-  dryRun = false
-} = getPluginConfig<IFirebasePluginSettings>(firebasePlugin);
-
-const db = admin.initializeApp({
-  credential: serviceAccount,
-  databaseURL: databaseUrl
-})
-  .firestore();
-
-const addPostToFirebase = async (html: string, route: any) => {
+export async function addPostToFirebasePlugin(html: string, route: HandledRoute): Promise<string> {
   try {
-    if (!dryRun && process.env.NODE_ENV !== 'production') {
+    const {
+      serviceAccount,
+      databaseUrl,
+      dryRun = false
+    } = getMyConfig<IFirebasePluginSettings>(AddPostToFirebase);
+
+
+    if (!serviceAccount || !databaseUrl) {
+      logError(red('service account and/or databaseUrl configurations are not set for the firebase plugin'));
+      return;
+    }
+
+
+    const db = admin.initializeApp({
+      credential: serviceAccount,
+      databaseURL: databaseUrl
+    })
+      .firestore();
+
+    if (!dryRun) {
       logWarn(orange('Not performing firestore update, set dryRun to false and NODE_ENV to production'));
       return html;
     }
 
-    // TODO get rid of all null values
-    route.data.name = route.data.title;
+    const cleanedObj = removeEmpty(route);
 
-    await db.doc(`${route.route}`).set(route, { merge: true });
+    await db.doc(`${route.route}`).set(cleanedObj, { merge: true });
 
     log(green(`Added ${route.route} to Firestore`));
 
@@ -44,10 +54,31 @@ const addPostToFirebase = async (html: string, route: any) => {
 const validator = (config: IFirebasePluginSettings) => {
   if (!config.serviceAccount || !config.databaseUrl) {
     return [
-      `[scully-plugin-algolia] apiKey and appId cannot be null`
+      `[scully-plugin-firebase-likes] serviceAccount and databaseUrl cannot be null`
     ];
   }
   return false;
 };
 
-registerPlugin('render', firebasePlugin, addPostToFirebase, validator);
+registerPlugin('render', AddPostToFirebase, addPostToFirebasePlugin, validator);
+
+export interface IFirebasePluginSettings {
+  serviceAccount: any;
+  databaseUrl: string
+  dryRun?: boolean;
+}
+
+
+function removeEmpty(obj: object): object {
+  const newObj = {};
+
+  Object.keys(obj).forEach(key => {
+    if (obj[key] && typeof obj[key] === 'object') {
+      newObj[key] = removeEmpty(obj[key]); // recurse
+    } else if (obj[key] != null) {
+      newObj[key] = obj[key]; // copy value
+    }
+  });
+
+  return newObj;
+}

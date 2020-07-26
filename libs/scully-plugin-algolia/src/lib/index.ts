@@ -1,4 +1,14 @@
-import { getPluginConfig, green, log, logError, logWarn, orange, red, registerPlugin } from '@scullyio/scully';
+import {
+  getMyConfig,
+  green,
+  HandledRoute,
+  log,
+  logError,
+  logWarn,
+  orange,
+  red,
+  registerPlugin
+} from '@scullyio/scully';
 import { default as searchClient } from 'algoliasearch';
 
 import { SearchClient, SearchIndex } from 'algoliasearch/dist/algoliasearch';
@@ -6,7 +16,7 @@ import { SearchClient, SearchIndex } from 'algoliasearch/dist/algoliasearch';
 declare var process;
 declare var require;
 
-export interface IAlgoliaPluginSettings {
+export interface IAlgoliaPluginConfig {
   indexName: string;
   extra?: {}
   appId: string;
@@ -14,21 +24,28 @@ export interface IAlgoliaPluginSettings {
   dryRun: boolean;
 }
 
-const AlgoliaPlugin = 'updateAlgoliaIndex';
+const UpdateAlgoliaIndex = 'updateAlgoliaIndex';
 
-export const updateAlgoliaIndex = async (html: string, options: any): Promise<string> => {
+const AlgoliaPluginDefaultConfig: IAlgoliaPluginConfig = {
+  indexName: 'blog',
+  appId: null,
+  apiKey: null,
+  dryRun: false
+}
+
+export async function updateAlgoliaIndexPlugin(html: string, options: HandledRoute): Promise<string> {
   try {
 
     const {
-      dryRun = false,
-      indexName = options.route.split('/')[1],
+      dryRun = AlgoliaPluginDefaultConfig.dryRun,
+      indexName = AlgoliaPluginDefaultConfig.indexName,
       appId,
       apiKey,
       extra = {}
-    } = getPluginConfig<IAlgoliaPluginSettings>(AlgoliaPlugin);
+    } = getMyConfig<IAlgoliaPluginConfig>(updateAlgoliaIndexPlugin);
 
-    if (!dryRun && process.env.NODE_ENV !== 'production') {
-      logWarn(orange('Not performing index, set dryRun to false and NODE_ENV to production'));
+    if (!dryRun) {
+      logWarn(orange('Not performing index, set dryRun to false'));
       return html;
     }
 
@@ -135,7 +152,7 @@ async function moveIndex(client: SearchClient, sourceIndex: SearchIndex, targetI
   return targetIndex.waitTask(taskID);
 }
 
-const validator = (config: IAlgoliaPluginSettings) => {
+const validator = (config: IAlgoliaPluginConfig) => {
   if (!config.appId || !config.apiKey) {
     return [
       `[scully-plugin-algolia] apiKey and appId cannot be null`
@@ -143,7 +160,6 @@ const validator = (config: IAlgoliaPluginSettings) => {
   }
   return false;
 };
-const algoliaPlugin = 'updateAlgoliaIndex';
 
 
-registerPlugin('render', algoliaPlugin, updateAlgoliaIndex, validator);
+registerPlugin('render', UpdateAlgoliaIndex, updateAlgoliaIndexPlugin, validator);

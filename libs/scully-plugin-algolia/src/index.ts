@@ -1,5 +1,5 @@
 export {
-  IAlgoliaPluginSettings,
-  updateAlgoliaIndex
+  IAlgoliaPluginConfig,
+  updateAlgoliaIndexPlugin
 }
 from './lib/index'
