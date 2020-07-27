@@ -27,25 +27,20 @@
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "build:all": "npm run build:search && npm run build:img && npm run build:fire && npm run build:links",
-    "ver:all":"npm run ver:search && npm run ver:img && npm run ver:fire && npm run ver:links",
+    "ver:all": "npm run ver:search && npm run ver:img && npm run ver:fire && npm run ver:links",
     "publish:all": "npm run publish:search && npm run publish:img && npm run publish:fire && npm run publish:links",
-
     "build:search": "ng build scully-plugin-algolia --prod",
     "ver:search": "cd libs/scully-plugin-algolia && npm version patch",
     "publish:search": "npm run ver:search && npm run build:search && npm publish ./dist/libs/scully-plugin-algolia",
-
     "build:img": "ng build scully-plugin-blur-up-images --prod",
     "ver:img": "cd libs/scully-plugin-blur-up-images && npm version patch",
     "publish:img": "npm run ver:img && npm run build:img && npm publish ./dist/libs/scully-plugin-blur-up-images",
-
     "build:fire": "ng build scully-plugin-firebase-likes --prod",
     "ver:fire": "cd libs/scully-plugin-firebase-likes && npm version patch",
     "publish:fire": "npm run ver:fire && npm run build:fire && npm publish ./dist/libs/scully-plugin-firebase-likes",
-
     "build:links": "ng build scully-plugin-header-links --prod",
     "ver:links": "cd libs/scully-plugin-header-links && npm version patch",
     "publish:links": "npm run ver:links && npm run build:links && npm publish ./dist/libs/scully-plugin-header-links"
-
   },
   "private": true,
   "dependencies": {

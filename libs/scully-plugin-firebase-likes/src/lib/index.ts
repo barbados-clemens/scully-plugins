@@ -1,6 +1,7 @@
 import {
   getMyConfig,
-  green, HandledRoute,
+  green,
+  HandledRoute,
   log,
   logError,
   logWarn,
@@ -14,15 +15,21 @@ export const AddPostToFirebase = 'addPostToFirebase';
 
 export async function addPostToFirebasePlugin(html: string, route: HandledRoute): Promise<string> {
   try {
+
+
+    const config = getMyConfig<IFirebasePluginSettings>(addPostToFirebasePlugin);
+
     const {
       serviceAccount,
       databaseUrl,
       dryRun = false,
-      debug,
-    } = getMyConfig<IFirebasePluginSettings>(AddPostToFirebase);
+      debug = false,
+    } = config;
 
-    console.log(`Service Account => ${serviceAccount}`)
-    console.log(`DatabaseUrl => ${databaseUrl}`)
+    if (debug) {
+      console.log(JSON.stringify(config, null, 2));
+    }
+
 
     if (!serviceAccount || !databaseUrl) {
       logError(red('service account and/or databaseUrl configurations are not set for the firebase plugin'));

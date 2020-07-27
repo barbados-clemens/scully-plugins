@@ -7,6 +7,10 @@ export async function addLinksToHeaderPlugin(html: string, route: HandledRoute):
   try {
 
     const config = getMyConfig<IHeaderLinksConfig>(addLinksToHeaderPlugin);
+    const config2 = getMyConfig<IHeaderLinksConfig>(AddLinksToHeader);
+
+    console.log(`config with functionName => ${config}`);
+    console.log(`config with str => ${config2}`);
 
     const dom = new JSDOM(html);
     const { window } = dom;

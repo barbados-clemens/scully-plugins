@@ -1,15 +1,17 @@
 {
   "name": "@barbados-clemens/scully-plugin-blur-up-images",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "scripts": {
     "test": "jest"
   },
   "peerDependencies": {
     "@scullyio/scully": "^1.0.0-beta.0",
-    "@angular/core": "^9.0.0 || ^10.0.0"
+    "@angular/core": "^9.0.0 || ^10.0.5"
   },
   "devDependencies": {
-    "@types/node": "^12.12.53"
+    "@types/node": "^12.12.53",
+    "@scullyio/scully": "^1.0.0-beta.0",
+    "@angular/core": "^10.0.5"
   },
   "dependencies": {
     "axios": "^0.19.2",

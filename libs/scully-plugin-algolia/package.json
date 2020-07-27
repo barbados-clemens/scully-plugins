@@ -1,12 +1,12 @@
 {
   "name": "@barbados-clemens/scully-plugin-algolia",
-  "version": "0.0.8",
+  "version": "0.0.11",
   "scripts": {
     "test": "jest"
   },
   "peerDependencies": {
     "@scullyio/scully": "^1.0.0-beta.0",
-    "algoliasearch": "^4.2.0"
+    "algoliasearch": "^4.3.1"
   },
   "keywords": [
     "angular",
@@ -20,6 +20,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/node": "^12.12.53"
+    "@types/node": "^12.12.53",
+    "@scullyio/scully": "^1.0.0-beta.0",
+    "algoliasearch": "^4.3.1"
   }
 }
