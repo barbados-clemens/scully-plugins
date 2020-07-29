@@ -22,11 +22,11 @@ export async function addPostToFirebasePlugin(html: string, route: HandledRoute)
     const {
       serviceAccount,
       databaseUrl,
-      dryRun = false,
-      debug = false,
+      isDryRun = false,
+      isDebug = false,
     } = config;
 
-    if (debug) {
+    if (isDebug) {
       console.log(JSON.stringify(config, null, 2));
     }
 
@@ -43,8 +43,8 @@ export async function addPostToFirebasePlugin(html: string, route: HandledRoute)
     })
       .firestore();
 
-    if (!dryRun) {
-      logWarn(orange('Not performing firestore update, set dryRun to false and NODE_ENV to production'));
+    if (isDryRun) {
+      logWarn(orange('Not performing firestore update, set isDryRun to false'));
       return html;
     }
 
@@ -75,8 +75,8 @@ registerPlugin('render', AddPostToFirebase, addPostToFirebasePlugin, validator);
 export interface IFirebasePluginSettings {
   serviceAccount: any;
   databaseUrl: string
-  dryRun?: boolean;
-  debug?: boolean;
+  isDryRun?: boolean;
+  isDebug?: boolean;
 }
 
 

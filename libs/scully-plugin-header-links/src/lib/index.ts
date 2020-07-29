@@ -7,10 +7,11 @@ export async function addLinksToHeaderPlugin(html: string, route: HandledRoute):
   try {
 
     const config = getMyConfig<IHeaderLinksConfig>(addLinksToHeaderPlugin);
-    const config2 = getMyConfig<IHeaderLinksConfig>(AddLinksToHeader);
 
-    console.log(`config with functionName => ${config}`);
-    console.log(`config with str => ${config2}`);
+    if (config.isDebug) {
+      log(yellow(`Debug Config =>`, JSON.stringify(config, null, 2)));
+    }
+
 
     const dom = new JSDOM(html);
     const { window } = dom;
@@ -70,5 +71,10 @@ export interface IHeaderLinksConfig {
    * title add for the anchor tag
    */
   title?: string;
+
+  /**
+   * set to true to have the configuration logged
+   */
+  isDebug?: boolean;
 }
 

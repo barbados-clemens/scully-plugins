@@ -13,7 +13,6 @@ import { default as searchClient } from 'algoliasearch';
 
 import { SearchClient, SearchIndex } from 'algoliasearch/dist/algoliasearch';
 
-declare var process;
 declare var require;
 
 export interface IAlgoliaPluginConfig {
@@ -21,7 +20,7 @@ export interface IAlgoliaPluginConfig {
   extra?: {}
   appId: string;
   apiKey: string;
-  dryRun: boolean;
+  isDryRun: boolean;
 }
 
 export const UpdateAlgoliaIndex = 'updateAlgoliaIndex';
@@ -30,21 +29,21 @@ export const AlgoliaPluginDefaultConfig: IAlgoliaPluginConfig = {
   indexName: 'blog',
   appId: null,
   apiKey: null,
-  dryRun: false
-}
+  isDryRun: false
+};
 
 export async function updateAlgoliaIndexPlugin(html: string, options: HandledRoute): Promise<string> {
   try {
 
     const {
-      dryRun = AlgoliaPluginDefaultConfig.dryRun,
+      isDryRun = AlgoliaPluginDefaultConfig.isDryRun,
       indexName = AlgoliaPluginDefaultConfig.indexName,
       appId,
       apiKey,
       extra = {}
     } = getMyConfig<IAlgoliaPluginConfig>(updateAlgoliaIndexPlugin);
 
-    if (!dryRun) {
+    if (isDryRun) {
       logWarn(orange('Not performing index, set dryRun to false'));
       return html;
     }
@@ -68,7 +67,7 @@ export async function updateAlgoliaIndexPlugin(html: string, options: HandledRou
 
     log(green(`Updated index for [${payload.title}]`));
   } catch (e) {
-    logError(JSON.stringify(e));
+    logError(JSON.stringify(e, null, 2));
   }
 
   return html;

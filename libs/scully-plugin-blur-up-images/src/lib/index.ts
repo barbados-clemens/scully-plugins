@@ -8,7 +8,8 @@ import { getMyConfig, HandledRoute, log, registerPlugin, yellow } from '@scullyi
 
 export interface IBlurUpConfig {
   alt?: string;
-  querySelector ?:string;
+  querySelector?: string;
+  isDebug?: boolean;
 }
 
 /**
@@ -17,7 +18,12 @@ export interface IBlurUpConfig {
  */
 export async function blurUpImagesPlugin(html: string, route: HandledRoute): Promise<string> {
 
-  const config = getMyConfig<IBlurUpConfig>(blurUpImagesPlugin)
+  const config = getMyConfig<IBlurUpConfig>(blurUpImagesPlugin);
+
+  if (config.isDebug) {
+    log(yellow(`Debug config => `, JSON.stringify(config, null, 2)));
+  }
+
 
   const dom = new JSDOM(html);
   const { window } = dom;
@@ -27,7 +33,7 @@ export async function blurUpImagesPlugin(html: string, route: HandledRoute): Pro
   for (let i = 0; i < imgs.length; i++) {
 
     const mediaUrl = imgs[i].src;
-    const caption = imgs[i].alt || config.alt
+    const caption = imgs[i].alt || config.alt;
 
     const markupAST = await newImgMarkUp(mediaUrl, caption);
     const span = window.document.createElement(markupAST.tagName);
