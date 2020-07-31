@@ -9,39 +9,32 @@ import {
   red,
   registerPlugin
 } from '@scullyio/scully';
-import * as admin from 'firebase-admin';
+import { getDb } from './db';
 
 export const AddPostToFirebase = 'addPostToFirebase';
 
 export async function addPostToFirebasePlugin(html: string, route: HandledRoute): Promise<string> {
   try {
-
-
     const config = getMyConfig<IFirebasePluginSettings>(addPostToFirebasePlugin);
 
     const {
       serviceAccount,
       databaseUrl,
       isDryRun = false,
-      isDebug = false,
+      isDebug = false
     } = config;
+
+    const db = getDb(config);
 
     if (isDebug) {
       console.log(JSON.stringify(config, null, 2));
     }
-
 
     if (!serviceAccount || !databaseUrl) {
       logError(red('service account and/or databaseUrl configurations are not set for the firebase plugin'));
       return;
     }
 
-
-    const db = admin.initializeApp({
-      credential: serviceAccount,
-      databaseURL: databaseUrl
-    })
-      .firestore();
 
     if (isDryRun) {
       logWarn(orange('Not performing firestore update, set isDryRun to false'));
