@@ -4,6 +4,5 @@ export {
   BlurUpImages,
 } from './lib/index';
 
-export {
-  BlurUpModule,
-} from './lib/blur-up.module';
+export * from './lib/blur-up.module';
+export * from './lib/blur-up.directive';
