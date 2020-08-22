@@ -1,8 +1,9 @@
 {
   "name": "@barbados-clemens/scully-plugin-blur-up-images",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "bootstrap": "npm i"
   },
   "peerDependencies": {
     "@scullyio/scully": "^1.0.0-beta.0",

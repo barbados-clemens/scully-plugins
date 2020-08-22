@@ -1,8 +1,9 @@
 {
   "name": "@barbados-clemens/scully-plugin-firebase-likes",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "bootstrap": "npm i"
   },
   "peerDependencies": {
     "@scullyio/scully": "^1.0.0-beta.0"
